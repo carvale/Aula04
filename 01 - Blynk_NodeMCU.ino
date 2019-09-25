@@ -38,8 +38,8 @@ char auth[] = "Seu codido de autorizacao";
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "Projetosiot";
-char pass[] = "pelicano2018";
+char ssid[] = "Iot 2019";
+char pass[] = "pelicano2019";
 
 int prevState = -1;
 int currState = -1;
