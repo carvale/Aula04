@@ -72,7 +72,7 @@ void loop()
   if ((err = dht11.read(&temperatura, &umidade, NULL)) != SimpleDHTErrSuccess) {
     Serial.print("Leitua DHT11 com falha, err=");
     Serial.println(err);
-    delay(1000);
+    delay(2000);
     return;
   }
 
@@ -80,7 +80,7 @@ void loop()
   Serial.print((int)temperatura); Serial.print(" *C, ");
   Serial.print((int)umidade); Serial.println(" %");
 
-  delay(1000);
+  delay(2000);
 
   Blynk.virtualWrite(V5, (int)umidade);
   Blynk.virtualWrite(V6, (int)temperatura);
