@@ -49,52 +49,40 @@ char pass[] = "12345678";
 
 BlynkTimer timer;
 
-// This function sends Arduino's up time every second to Virtual Pin (5).
-// In the app, Widget's reading frequency should be set to PUSH. This means
-// that you define how often to send data to Blynk App.
-void sendSensor()
-{
-  //Variáveis
-      byte temperatura = 20;
-      byte umidade = 50;
-      int err = SimpleDHTErrSuccess;
-
-      if ((err = dht11.read(&temperatura, &umidade, NULL)) != SimpleDHTErrSuccess) {
-        Serial.print("Leitua DHT11 com falha, err="); 
-        Serial.println(err);
-        delay(1000);
-        return;
-      }
-      
-      Serial.print("Leitura OK: ");
-      Serial.print((int)temperatura); Serial.print(" *C, "); 
-      Serial.print((int)umidade); Serial.println(" %");
-
-      
-      
-      digitalWrite(D4, LOW);//Pisca
-      delay(500);
- 
-  Blynk.virtualWrite(V5, (int)umidade);
-  Blynk.virtualWrite(V6, (int)temperatura);
-}
-
 void setup()
 {
   // Debug console
   Serial.begin(115200);
-
-  pinMode(D4, OUTPUT); // Incializa o D4  como saída
-
   Blynk.begin(auth, ssid, pass);
 
 
-  // Setup a function to be called every second
-  timer.setInterval(1000L, sendSensor);
 }
 
 void loop()
 {
   Blynk.run();
-  timer.run();
+
+  digitalWrite(D4, HIGH);//Pisca
+  //Variáveis
+  byte temperatura = 20;
+  byte umidade = 50;
+  int err = SimpleDHTErrSuccess;
+  
+
+  if ((err = dht11.read(&temperatura, &umidade, NULL)) != SimpleDHTErrSuccess) {
+    Serial.print("Leitua DHT11 com falha, err=");
+    Serial.println(err);
+    delay(1000);
+    return;
+  }
+
+  Serial.print("Leitura OK: ");
+  Serial.print((int)temperatura); Serial.print(" *C, ");
+  Serial.print((int)umidade); Serial.println(" %");
+
+  delay(1000);
+
+  Blynk.virtualWrite(V5, (int)umidade);
+  Blynk.virtualWrite(V6, (int)temperatura);
+
 }
