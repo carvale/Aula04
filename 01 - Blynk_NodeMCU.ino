@@ -45,7 +45,7 @@ int prevState = -1;
 int currState = -1;
 long lastChangeTime = 0;
 
-WidgetLED led1(V2);
+WidgetLED led1(V1);
 void checkPin()
 {
   // Invert state, since button is "Active LOW"
