@@ -48,28 +48,28 @@ void notifyOnButtonPress()
   // Invert state, since button is "Active LOW"
   int isButtonPressed = !digitalRead(D3);
   if (isButtonPressed) {
-    Serial.println("Button is pressed.");
+    Serial.println("Flash apertado!.");
 
     // Note:
     //   We allow 1 notification per 15 seconds for now.
-    Blynk.notify("Yaaay... button is pressed!");
+    Blynk.notify("Alguem apertou o interfone!!!!");
   }
 }
 
 void setup()
 {
   // Debug console
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   Blynk.begin(auth, ssid, pass);
   // You can also specify server:
   //Blynk.begin(auth, ssid, pass, "blynk-cloud.com", 80);
   //Blynk.begin(auth, ssid, pass, IPAddress(192,168,1,100), 8080);
 
-  // Setup notification button on pin 2
-  pinMode(2, INPUT_PULLUP);
+  // Setup notification button on pin D3
+  pinMode(D3, INPUT_PULLUP);
   // Attach pin 2 interrupt to our handler
-  attachInterrupt(digitalPinToInterrupt(2), notifyOnButtonPress, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(D3), notifyOnButtonPress, CHANGE);
 }
 
 void loop()
