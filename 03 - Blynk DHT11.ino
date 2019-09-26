@@ -62,7 +62,6 @@ void loop()
 {
   Blynk.run();
 
-  digitalWrite(D4, HIGH);//Pisca
   //Variáveis
   byte temperatura = 20;
   byte umidade = 50;
