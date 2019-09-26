@@ -25,8 +25,8 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "automacao"
-#define WLAN_PASS       "moderno2018"
+#define WLAN_SSID       "IoT 2019"
+#define WLAN_PASS       "12345678"
 
 /************************* Adafruit.io Setup *********************************/
 
