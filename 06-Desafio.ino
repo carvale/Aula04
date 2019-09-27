@@ -24,8 +24,8 @@
  
  
 // WIFI
-const char* SSID = "Projetosiot"; // SSID / nome da rede WI-FI que deseja se conectar
-const char* PASSWORD = "pelicano2018"; // Senha da rede WI-FI que deseja se conectar
+const char* SSID = "IoT 2019"; // SSID / nome da rede WI-FI que deseja se conectar
+const char* PASSWORD = "12345678"; // Senha da rede WI-FI que deseja se conectar
   
 // MQTT
 const char* BROKER_MQTT = "broker.hivemq.com"; //URL do broker MQTT que se deseja utilizar
